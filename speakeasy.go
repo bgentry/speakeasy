@@ -3,6 +3,7 @@ package speakeasy
 import (
 	"fmt"
 	"os"
+	"bufio"
 )
 
 // Ask the user to enter a password with input hidden. prompt is a string to
@@ -16,7 +17,9 @@ func Ask(prompt string) (password string, err error) {
 }
 
 func readline() (value string, err error) {
-	_, err = fmt.Fscanln(os.Stdin, &value)
+    input := bufio.NewReader(os.Stdin)
+    value, err = input.ReadString('\n')
+
 	if err != nil {
 		return
 	}

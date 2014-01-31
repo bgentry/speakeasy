@@ -12,10 +12,10 @@ import (
 const ENABLE_ECHO_INPUT = 0x0004
 
 func getPassword() (password string, err error) {
-	stdinHandler := syscall.Handle(os.Stdin.Fd())
+	hStdin := syscall.Handle(os.Stdin.Fd())
 	var oldMode uint32
 
-	err = syscall.GetConsoleMode(stdinHandler, &oldMode)
+	err = syscall.GetConsoleMode(hStdin, &oldMode)
 	if err != nil {
 		return
 	}
