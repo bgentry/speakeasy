@@ -11,8 +11,14 @@ import (
 // display before the user's input. Returns the provided password, or an error
 // if the command failed.
 func Ask(prompt string) (password string, err error) {
+	return FAsk(os.Stdout, prompt)
+}
+
+// Same as the Ask function, except it is possible to specify the file to write
+// the prompt to.
+func FAsk(file *os.File, prompt string) (password string, err error) {
 	if prompt != "" {
-		fmt.Fprint(os.Stdout, prompt) // Display the prompt.
+		fmt.Fprint(file, prompt) // Display the prompt.
 	}
 	return getPassword()
 }
