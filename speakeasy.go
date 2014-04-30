@@ -20,7 +20,11 @@ func FAsk(file *os.File, prompt string) (password string, err error) {
 	if prompt != "" {
 		fmt.Fprint(file, prompt) // Display the prompt.
 	}
-	return getPassword()
+	password, err = getPassword()
+
+	// Carriage return after the user input.
+	fmt.Fprintln(file, "")
+	return
 }
 
 func readline() (value string, err error) {
@@ -39,7 +43,5 @@ func readline() (value string, err error) {
 		valb = append(valb, b[0])
 	}
 
-	// Carriage return after the user input.
-	fmt.Println("")
 	return strings.TrimSuffix(string(valb), "\r"), nil
 }
