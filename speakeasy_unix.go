@@ -47,6 +47,7 @@ func getPassword() (password string, err error) {
 	}
 
 	// Turn on the terminal echo and stop listening for signals.
+	defer signal.Stop(sig)
 	defer close(brk)
 	defer echoOn(fd)
 
