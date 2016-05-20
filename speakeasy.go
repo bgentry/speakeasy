@@ -16,14 +16,14 @@ func Ask(prompt string) (password string, err error) {
 
 // Same as the Ask function, except it is possible to specify the file to write
 // the prompt to.
-func FAsk(io io.Writer, prompt string) (password string, err error) {
+func FAsk(wr io.Writer, prompt string) (password string, err error) {
 	if prompt != "" {
-		fmt.Fprint(io, prompt) // Display the prompt.
+		fmt.Fprint(wr, prompt) // Display the prompt.
 	}
 	password, err = getPassword()
 
 	// Carriage return after the user input.
-	fmt.Fprintln(io, "")
+	fmt.Fprintln(wr, "")
 	return
 }
 
