@@ -13,7 +13,6 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
-	"strings"
 	"syscall"
 )
 
@@ -55,7 +54,7 @@ func getPassword() (password string, err error) {
 
 	line, err := readline()
 	if err == nil {
-		password = strings.TrimSpace(line)
+		password = line
 	} else {
 		err = fmt.Errorf("failed during password entry: %s", err)
 	}
