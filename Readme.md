@@ -27,4 +27,4 @@ boilerplate copyright notice).
 [cf-cli]: https://github.com/cloudfoundry/cli "CloudFoundry Go CLI"
 [cf-ui-windows]: https://github.com/cloudfoundry/cli/blob/master/src/cf/terminal/ui_windows.go "CloudFoundry Go CLI Windows input helpers"
 [godoc]: https://godoc.org/github.com/bgentry/speakeasy "speakeasy on Godoc.org"
-[gopass]: https://code.google.com/p/gopass "gopass"
+[gopass]: https://github.com/howeyc/gopass "gopass"
